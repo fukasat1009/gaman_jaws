@@ -1,0 +1,16 @@
+<h1>Targets#index</h1>
+<p>Find me in app/views/targets/index.html.erb</p>
+
+<% @targets.each do |target| %>
+
+<p><%= link_to target.title ,target_path(target) %></p>
+<p><%= target.price %></p>
+
+<%= link_to "削除する",target, method: :delete %>
+
+<%= link_to(content_tag(:i, '', class: 'fas fa-pen'), edit_target_path(target)) %>
+
+<% end %>
+
+<%= link_to "新規投稿", new_target_path %>
+
