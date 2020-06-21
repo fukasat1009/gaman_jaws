@@ -1,0 +1,13 @@
+<h1>Targets#edit</h1>
+<p>Find me in app/views/targets/edit.html.erb</p>
+
+
+ <%= form_with model: @target, url: { action: :update }, local: true do |f| %>
+
+      <%= f.label :title %>
+      <%= f.text_field :title, autofocus: true,  placeholder: "目標名" %>
+      <%= f.label :price %>
+      <%= f.text_field :price, autofocus: true,  placeholder: "金額" %>
+
+      <%= f.submit "編集" %>
+ <% end %>
