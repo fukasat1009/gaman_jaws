@@ -6,5 +6,9 @@
       <%= f.label :price %>
       <%= f.text_field :price, autofocus: true,  placeholder: "金額" %>
 
+      <%= f.label :start_time %>
+      <%= f.datetime_select :start_time %>
+
+
       <%= f.submit "作成" %>
  <% end %>
