@@ -1,16 +1,33 @@
-<h1>Targets#index</h1>
-<p>Find me in app/views/targets/index.html.erb</p>
+<div class="topPage">
+  <div class="targetWrapper">
 
-<% @targets.each do |target| %>
+    <% @targets.each do |target| %>
+      <div class="target">
+        <div class="target_header">
+          <h2 class="target_header_title"><%= link_to target.title ,target_path(target) %></h2>
+          <h2 class="target_header_title"><%= target.price %></h2>
+          <div class="target_header_action">
+            <%= link_to(content_tag(:i, '', class: 'fas fa-pen'), edit_target_path(target)) %>
+            <%= link_to "削除する",target, method: :delete %>
+          </div>
+        </div>
+          <div class="patienceWrapper">
+            <% target.patiences.each do |patience| %>
+              <div class="patience">
+                <h3 class="patience_title">
+                  <%= link_to patience.name, target_patience_path(target,patience) %><%= patience.price %>
+                </h3>
+              </div>
+              <div class="card_detail is-exist"><i class="fas fa-bars"></i></div>
+            <% end %>
+            <%= link_to "さらに我慢を追加", new_target_patience_path(target) %>
+          </div>
+      </div>
+    <% end %>
 
-<p><%= link_to target.title ,target_path(target) %></p>
-<p><%= target.price %></p>
+  </div>
+  <%= link_to "新規投稿", new_target_path %>
+</div>
 
-<%= link_to "削除する",target, method: :delete %>
 
-<%= link_to(content_tag(:i, '', class: 'fas fa-pen'), edit_target_path(target)) %>
-
-<% end %>
-
-<%= link_to "新規投稿", new_target_path %>
 
