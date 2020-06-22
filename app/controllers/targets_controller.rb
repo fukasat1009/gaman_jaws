@@ -1,6 +1,7 @@
 class TargetsController < ApplicationController
   def index
-    @targets = Target.all
+    # ここのwhereでuser_idが現在ログイン中のユーザーのレコードを持ってこれる
+    @targets = Target.where(user: current_user).order("created_at ASC")
   end
 
   def new

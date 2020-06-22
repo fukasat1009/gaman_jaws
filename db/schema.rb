@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_21_150130) do
+ActiveRecord::Schema.define(version: 2020_06_22_082145) do
+
+  create_table "patiences", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "price"
+    t.integer "target_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["target_id"], name: "index_patiences_on_target_id"
+  end
 
   create_table "targets", force: :cascade do |t|
     t.string "title", null: false
