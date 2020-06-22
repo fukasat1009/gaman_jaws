@@ -1,0 +1,9 @@
+<%= month_calendar events: @targets do |date, targets| %>
+  <%= date.day %>
+
+  <% targets.each do |target| %>
+    <div>
+      <%= link_to target.title,target_path(target) %>
+    </div>
+  <% end %>
+<% end %>

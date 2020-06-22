@@ -40,6 +40,10 @@ class TargetsController < ApplicationController
     @target = Target.find(params[:id])
   end
 
+  def calendar
+    @targets = Target.all
+  end
+
   private
   def target_params
     params.require(:target).permit(:title, :price, :start_time).merge(user: current_user)
