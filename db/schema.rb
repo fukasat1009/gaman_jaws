@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_22_155241) do
+ActiveRecord::Schema.define(version: 2020_06_23_074441) do
 
   create_table "patiences", force: :cascade do |t|
     t.string "name", null: false
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 2020_06_22_155241) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["target_id"], name: "index_patiences_on_target_id"
+  end
+
+  create_table "post_comments", force: :cascade do |t|
+    t.text "comment"
+    t.integer "user_id"
+    t.integer "target_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "targets", force: :cascade do |t|
