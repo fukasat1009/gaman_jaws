@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :users
   resources :targets do
     resources :patiences, only: [:new, :create, :show, :edit, :update]
+    resource :favorites, only: [:create, :destroy]
     resources :post_comments, only: [:create, :destroy]
   end
 end
