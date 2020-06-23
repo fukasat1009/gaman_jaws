@@ -1,4 +1,4 @@
-<h2>詳細ページ</h2>
+
 
 <div class='carddetailPage'>
   <div class="container">
@@ -8,47 +8,65 @@
         <h2><%= @target.title %></h2>
       </div>
       <div class="cardContents_memo">
-        <div>メモ</div>
-        <div><%= @target.price %></div>
+        <div>設定金額</div>
+        <div><%= @target.price %>円</div>
       </div>
     </div>
   </div>
 </div>
-
+<div class="container">
 <div class="comment-list bt style-2" id="comments">
-    <div class="float-wrapper">
-        <h2 class="comment-count"><%= @target.post_comments.count %>件コメント</h2>
+  <div class="float-wrapper">
+    <div class="comment-count">
+        <%= @target.post_comments.count %>件コメント
     </div>
-    <% @target.post_comments.each do |post_comment| %>
-        <li class="comment">
-            <div class="comment-body bb">
-                <div class="comment-avatar">
-
-                </div>
-                <div class="comment-text">
-                    <div class="comment-author clearfix">
-                        <a href="#" class="link-author"><%= post_comment.user.name %></a>
-                        <span class="comment-meta">
-                        <span class="comment-date"><%= post_comment.created_at.strftime('%Y/%m/%d') %></span>
-                        </span>
-                    </div>
-                    <div class="comment-entry"><%= post_comment.comment %></div>
-                </div>
-            </div>
-        </li>
-        <% if post_comment.user == current_user%>
-  <div>
-    <%= link_to "削除", target_post_comment_path(post_comment.target, post_comment), method: :delete, class: "btn btn-danger pull-right" %>
   </div>
-<% end %>
-    <% end %>
-</ol>
-<%= form_for [@target, @post_comment] do |f| %>
-    <div class="row">
-        <div class="col-sm-12">
-            <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
+    <% @target.post_comments.each do |post_comment| %>
+      <li class="comment">
+        <div class="comment-body bb">
+          <div class="comment-avatar">
+            <div class="comment-text">
+              <div class="comment-author clearfix">
+                <a href="#" class="link-author">
+                  <%= post_comment.user.name %>
+                </a>
+                <span class="comment-meta">
+                  <span class="comment-date"><%= post_comment.created_at.strftime('%Y/%m/%d') %></span>
+                </span>
+              </div>
+              <div class="comment-entry"><%= post_comment.comment %></div>
+            </div>
+          </div>
         </div>
-    </div>
-    <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
-<% end %>
+      </li>
+        <% if post_comment.user == current_user%>
+          <div>
+            <%= link_to "削除", target_post_comment_path(post_comment.target, post_comment), method: :delete, class: "btn btn-danger pull-right" %>
+          </div>
+        <% end %>
+    <% end %>
+    <%= form_for [@target, @post_comment] do |f| %>
+      <div class="row">
+        <div class="col-sm-12">
+          <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
+        </div>
+      </div>
+        <%= f.submit "送信する", class: "btn btn-outline-dark" %>
+    <% end %>
 
+    <% if @target.favorited_by?(current_user) %>
+      <li>
+        <%= link_to target_favorites_path(@target), method: :delete do %>
+        <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+        <%= @target.favorites.count %> いいね
+    <% end %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to target_favorites_path(@target), method: :post do %>
+          <i class="fa fa-heart-o" aria-hidden="true"></i>
+          <%= @target.favorites.count %> いいね
+        <% end %>
+      </li>
+    <% end %>
+</div>

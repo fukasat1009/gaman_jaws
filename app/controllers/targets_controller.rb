@@ -42,7 +42,7 @@ class TargetsController < ApplicationController
   end
 
   def calendar
-    @targets = Target.all
+     @targets = Target.where(user: current_user).order("created_at ASC")
   end
 
   private
