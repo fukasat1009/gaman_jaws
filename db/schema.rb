@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_23_122044) do
+ActiveRecord::Schema.define(version: 2020_06_25_054427) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(version: 2020_06_23_122044) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sns_credentials", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
+  end
+
   create_table "targets", force: :cascade do |t|
     t.string "title", null: false
     t.string "price", null: false
@@ -56,6 +65,7 @@ ActiveRecord::Schema.define(version: 2020_06_23_122044) do
     t.string "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "profile_image_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
