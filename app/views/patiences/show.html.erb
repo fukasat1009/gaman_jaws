@@ -17,6 +17,9 @@
       <div class="cardContents_btnArea">
         <%= link_to '編集する', edit_target_patience_path(@patience.target, @patience), class: "edit_btn" %>
       </div>
+      <div class="cardContents_btnArea">
+        <%= link_to '削除する', target_patience_path(@patience.target, @patience), method: :delete, class: "delete_btn" %>
+      </div>
     </div>
   </div>
 </div>

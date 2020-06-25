@@ -31,6 +31,12 @@ class PatiencesController < ApplicationController
     @patience = Patience.find(params[:id])
   end
 
+  def destroy
+    @patience = Patience.find(params[:id])
+    @patience.destroy
+    redirect_to targets_path
+  end
+
   private
   def patience_params
     params.require(:patience).permit(:name, :price, :target_id)

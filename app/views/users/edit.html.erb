@@ -1,0 +1,23 @@
+
+<div class="container">
+
+<h1>User info</h1>
+
+	<% if @user.errors.any? %>
+        <%= @user.errors.count %>error
+          <% @user.errors.full_messages.each do |message| %>
+            <%= message %>
+        <% end %>
+    <% end %>
+<%= form_with model: @user, url: { action: :update }, local: true do |f| %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, autofocus: true,  placeholder: "名前" %>
+      <%= f.label :body %>
+      <%= f.text_field :body, autofocus: true,  placeholder: "自己紹介" %>
+
+      <%= f.attachment_field :profile_image %>
+
+      <%= f.submit "編集" %>
+ <% end %>
+</div>
