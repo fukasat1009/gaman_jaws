@@ -72,3 +72,6 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
 gem 'kaminari'
+group :production do
+  gem 'mysql2'
+end
