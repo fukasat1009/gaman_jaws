@@ -1,0 +1,13 @@
+<h1>Patiences#new</h1>
+<p>Find me in app/views/patiences/new.html.erb</p>
+
+<%= form_with model: @patience, url: { action: :create },  local: true do |f| %>
+<%= f.hidden_field :target_id, value: @target.id %>
+
+        <%= f.label :name %>
+        <%= f.text_field :name, placeholder: "我慢名" %>
+
+        <%= f.label :price %>
+        <%= f.text_area :price, placeholder: "金額" %>
+     <%= f.submit "作成する" %>
+    <% end %>
