@@ -25,9 +25,7 @@
             <h6>我慢金額合計<%= array.sum %>円</h6>
             <h6>達成まで<%= target.price.to_i - array.sum %>円</h6>
               <% if target.price.to_i < array.sum %>
-                <div class="stamp stamp-approve">
-                <span>達成</span>
-                </div>
+                <div class="atsu-mori" data-ruby="JAWS">我慢</div>
                 <% end %>
             <%= link_to "さらに我慢を追加", new_target_patience_path(target) %>
           </div>

@@ -9,6 +9,8 @@
       <%= f.label :start_time %>
       <%= f.datetime_select :start_time %>
 
+      <%= f.select :target_status, Target.target_statuses.keys, include_blank: "-----" %>
+
 
       <%= f.submit "作成" %>
  <% end %>
