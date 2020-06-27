@@ -9,5 +9,7 @@
       <%= f.label :price %>
       <%= f.text_field :price, autofocus: true,  placeholder: "金額" %>
 
+      <%= f.select :target_status, Target.target_statuses.keys, include_blank: "-----" %>
+
       <%= f.submit "編集" %>
  <% end %>

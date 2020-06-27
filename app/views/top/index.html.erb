@@ -1,7 +1,54 @@
-<h4>TOP</h4>
 
+<div class="container">
+  <div class="row">
+  	<div class="col-6">
+      <%= link_to "投稿一覧",targets_path %>
+      <%= link_to "ユーザー一覧",users_path %>
+    </div>
 
+    <div class="plate" id="cork">
+  <span>PeonyQueen</span>
+</div>
 
+    <div class="col-6">
+      <div class="topPage">
+        <div class="targetWrapper">
+          <% @targets.each do |target| %>
+            <% if target.target_status == "挑戦中" %>
+              <div class="target">
+                <div class="target_header">
+                  <h2 class="target_header_title"><%= link_to target.title ,target_path(target) %></h2>
+                  <h2 class="target_header_title"><%= target.price %></h2>円
+                    <div class="target_header_action">
+                      <%= link_to(content_tag(:i, '', class: 'fas fa-pen'), edit_target_path(target)) %>
+                      <%= link_to "削除する",target, method: :delete %>
+                    </div>
+                </div>
+                <% array = [] %>
+                  <div class="patienceWrapper">
+                    <% target.patiences.each do |patience| %>
+                      <% array << patience.price.to_i %>
+                        <div class="patience">
+                          <h3 class="patience_title">
+                            <%= link_to patience.name, target_patience_path(target,patience) %>&nbsp;&nbsp;&nbsp;&nbsp;<%= patience.price %>円
+                          </h3>
+                        </div>
+                  <div class="card_detail is-exist"><i class="fas fa-bars"></i></div>
+                    <% end %>
+                    <h6>我慢金額合計<%= array.sum %>円</h6>
+                    <h6>達成まで<%= target.price.to_i - array.sum %>円</h6>
+                   <% if target.price.to_i < array.sum %>
+                     <div class="atsu-mori" data-ruby="JAWS">我慢</div>
+                   <% end %>
+                   <%= link_to "さらに我慢を追加", new_target_patience_path(target) %>
+                  </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+        <%= link_to "新規投稿", new_target_path %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= link_to "投稿一覧",targets_path %>
-<%= link_to "ユーザー一覧",users_path %>
