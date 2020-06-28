@@ -1,0 +1,3 @@
+$("#target_<%= @target.id %>").html("<%= j(render partial: "targets/comment", locals: {target: @target} ) %>")
+$('textarea').val('');
+$('input').val('');
