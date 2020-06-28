@@ -7,6 +7,7 @@
           <th>user</th>
           <th>title</th>
           <th>price</th>
+          <th>favorite</th>
         </tr>
       </thead>
       <% @targets.each do |target| %>
@@ -17,6 +18,9 @@
                 <% end %></td>
             <td><%= link_to target.title,target_path(target) %></td>
             <td><%= target.price %></td>
+            <td class="target_<%= target.id %>">
+              <%= render "users/favorite",target: target %>
+            </td>
           </tr>
         </tbody>
       <% end %>
