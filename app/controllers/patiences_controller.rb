@@ -1,5 +1,5 @@
 class PatiencesController < ApplicationController
-
+  
   def new
     @patience = Patience.new
     @target = Target.find_by(id: params[:target_id])
