@@ -1,14 +1,20 @@
+<bodya>
+    <div class="bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+</bodya>
+
 <div class="topPage">
   <div class="container">
     <div class="row">
-  	  <div class="col-6">
-        <%= link_to "投稿一覧",targets_path %>
-        <%= link_to "ユーザー一覧",users_path %>
-      </div>
-      <div class="col-6">
-       <div class="plate" id="cork">
-         <span>challenge</span>
-       </div>
+      <div class="home">
+        <%= link_to "Targets",targets_path %>
+        <%= link_to "Users",users_path %>
+        <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link" %>
       </div>
     </div>
     <div class="container">
@@ -58,7 +64,5 @@
     </div>
   </div>
 </div>
-
-
 
 

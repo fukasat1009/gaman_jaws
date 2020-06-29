@@ -1,4 +1,5 @@
 class TargetsController < ApplicationController
+  before_action :authenticate_user!
   def index
     # ここのwhereでuser_idが現在ログイン中のユーザーのレコードを持ってこれる
     @targets = Target.where(user: current_user).order("created_at ASC")

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
    }
 
   root 'top#index'
+   get 'top/index' => 'top#index', as: 'top_index'
   get 'targets/calendar' => 'targets#calendar', as: 'target_calendar'
 
   resources :users

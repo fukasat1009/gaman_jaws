@@ -1,4 +1,5 @@
 class FavoritesController < ApplicationController
+  
   def create
     @target = Target.find(params[:target_id])
     favorite = current_user.favorites.new(target_id: @target.id)
