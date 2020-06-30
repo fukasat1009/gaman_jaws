@@ -1,14 +1,14 @@
 
 .topPage {
   min-height: 93vh;
-  padding-top: 30px;
+  padding-top: 20px;
   overflow-x: scroll;
   .targetWrapper {
     display: flex;
     height: 100%;
     align-items: baseline;
     .target {
-      z-index: 1;
+      z-index: 0;
       border-radius: 10px;
       position: relative;
       background-color:#f0fff0;
@@ -80,7 +80,7 @@ $base-color: #D21;
   margin: 30px;
   postion: absolute;
   bottom: 64px;
-  z-index: 10000;
+  z-index: 0;
 }
 
 .atsu-mori:after {
@@ -90,7 +90,7 @@ $base-color: #D21;
     display: block;
     content: attr(data-ruby);
     font-size: 14px;
-    z-index: 10001;
+    z-index: 1;
     background-color: $base-color;
     color: #FFF;
     padding: 0px;
@@ -109,15 +109,6 @@ width: 100%;
 height: 100vh;
 }
 
-.bubbles {
-position: absolute;
-width: 100%;
-height: 100%;
-z-index: 0;
-overflow: hidden;
-top: 0;
-left: 0;
-}
 
 .bubble {
 position: absolute;

@@ -10,25 +10,49 @@
   </head>
 
   <body>
-    <header class="header">
-      <nav class="nav">
-        <ul class="header_menu">
-          <% if user_signed_in? %>
-          <li class="nav-link"><%= current_user.name %>さん</li>
-          <li>
-            <ul class="header_menu_inner">
-              <li><%= link_to "TOP", root_path, class: "nav-link" %></li>
-              <li><%= link_to "カレンダー", target_calendar_path %></li>
-              <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
-            </ul>
-          </li>
-          <% end %>
-          <li class="header_menu_title"><img src="/assets/shark3.png" alt="" width="100px" height="100px"></li>
-        </ul>
-      </nav>
-    </header>
+    <bodya>
+    <div class="bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+</bodya>
+
+<% if user_signed_in? %>
+  <header tabindex="0"><img src="/assets/shark3.png" alt="" width="80px" height="80px"></header>
+  <div id="nav-container">
+    <div class="bg"></div>
+    <div class="button" tabindex="0">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div id="nav-content" tabindex="0">
+      <ul>
+        <li><%= link_to "TOP", root_path, class: "nav-link" %></li>
+        <li><%= link_to "Targets",targets_path %></li>
+        <li><%= link_to "みんなの我慢", users_path %></li>
+        <li><%= link_to "カレンダー", target_calendar_path %></li>
+        <li><%= link_to "新規投稿", new_target_path %></li>
+        <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
+        <li class="small"><a href="#0">Facebook</a><a href="#0">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+<% end %>
+<div class="main">
 
 
     <%= yield %>
+  </div>
   </body>
 </html>
