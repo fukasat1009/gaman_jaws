@@ -1,22 +1,7 @@
-<bodya>
-    <div class="bubbles">
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-    </div>
-</bodya>
+
 
 <div class="topPage">
   <div class="container">
-    <div class="row">
-      <div class="home">
-        <%= link_to "Targets",targets_path %>
-        <%= link_to "Users",users_path %>
-        <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link" %>
-      </div>
-    </div>
     <div class="container">
       <div class="row">
         <div class="col-6">
@@ -48,7 +33,7 @@
                         <% end %>
                         <h6>我慢金額合計<%= array.sum %>円</h6>
                         <h6>達成まで<%= target.price.to_i - array.sum %>円</h6>
-                       <% if target.price.to_i < array.sum %>
+                       <% if target.price.to_i <= array.sum %>
                          <div class="atsu-mori" data-ruby="JAWS">我慢</div>
                        <% end %>
                        <%= link_to "さらに我慢を追加", new_target_patience_path(target) %>
