@@ -28,7 +28,7 @@
 </bodya>
 
 <% if user_signed_in? %>
-  <header tabindex="0"><img src="/assets/shark3.png" alt="" width="80px" height="80px"></header>
+  <header tabindex="0"><%= image_tag asset_path("shark3.png",alt: ""),width: "80px" %></header>
   <div id="nav-container">
     <div class="bg"></div>
     <div class="button" tabindex="0">

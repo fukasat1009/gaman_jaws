@@ -72,6 +72,10 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
 gem 'kaminari'
+gem 'capistrano'
+gem 'capistrano-rails'
+gem 'capistrano3-puma'
+gem 'capistrano-rbenv'
 group :production do
   gem 'mysql2'
 end
