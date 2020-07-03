@@ -9,7 +9,7 @@
     <%= image_tag asset_path("shark3.png",alt: ""),width: "150px" %>
   </div>
 </div>
-    <h1>Sign up</h1>
+    <span class="text-light"><h1>Sign up</h1></span>
     <form>
       <div class="form-item">
         <label for="name"><%= f.label :name %></label>
@@ -23,7 +23,7 @@
         <label for="password"><%= f.label :password %></label>
           <%= f.password_field :password, autocomplete: "current-password",class: "input" %>
       </div>
-        <%= f.submit "Log in",class: "button button-panel" %>
+        <%= f.submit "Sign Up", class: "button-log" %>
     <% end %>
     </form>
     <div class="form-footer">
