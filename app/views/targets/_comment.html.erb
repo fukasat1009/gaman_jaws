@@ -1,6 +1,6 @@
 
 <% target.post_comments.each do |post_comment| %>
-      <li class="comment">
+      <div class="comment">
         <div class="comment-body bb">
           <div class="comment-avatar">
             <div class="comment-text">
@@ -16,7 +16,7 @@
             </div>
           </div>
         </div>
-      </li>
+      </div>
         <% if post_comment.user == current_user %>
           <div>
             <%= link_to "削除", target_post_comment_path(post_comment.target, post_comment), method: :delete,remote: true,  class: "btn btn-danger pull-right" %>

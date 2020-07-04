@@ -1,23 +1,34 @@
 
 <div class="container">
-
-<h1>User info</h1>
-
-	<% if @user.errors.any? %>
+  <div class="row">
+    <div class="col-4">
+    </div>
+    <div class="col-4">
+      <% if @user.errors.any? %>
         <%= @user.errors.count %>error
-          <% @user.errors.full_messages.each do |message| %>
+         <% @user.errors.full_messages.each do |message| %>
             <%= message %>
-        <% end %>
-    <% end %>
-<%= form_with model: @user, url: { action: :update }, local: true do |f| %>
+         <% end %>
+      <% end %>
+      <%= form_with model: @user, url: { action: :update }, local: true do |f| %>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, autofocus: true,  placeholder: "名前",class: "input form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :body %>
+          <%= f.text_area :body, autofocus: true,  placeholder: "自己紹介",class: "input form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.attachment_field :profile_image %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "編集",class: "btn btn-outline-dark",style: "width:300px" %>
+        </div>
+        <div class="col-4">
+        </div>
+      <% end %>
+    </div>
+  </div>
 
-      <%= f.label :name %>
-      <%= f.text_field :name, autofocus: true,  placeholder: "名前" %>
-      <%= f.label :body %>
-      <%= f.text_field :body, autofocus: true,  placeholder: "自己紹介" %>
 
-      <%= f.attachment_field :profile_image %>
-
-      <%= f.submit "編集" %>
- <% end %>
-</div>

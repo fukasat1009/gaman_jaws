@@ -1,39 +1,46 @@
+<div class="topPage">
+  <div class="targetWrapper">
 
 
-<div class='carddetailPage'>
   <div class="container">
-    <div class="cardContents">
-      <div class="cardContents_title">
-        <div>タイトル</div>
-        <h2><%= @target.title %></h2>
+    <div class="target">
+      <div class="target_header">
+        <h2 class="target_header_title"><%= @target.title %></h2>
+        <h2 class="target_header_title"><%= @target.price %>円</h2>
+          <div class="target_header_action">
+
+          </div>
       </div>
-      <div class="cardContents_memo">
-        <div>設定金額</div>
-        <div><%= @target.price %>円</div>
+      <div class="patienceWrapper">
+        <% @target.patiences.each do |patience| %>
+          <div class="patience">
+            <h3 class="patience_title"><%=  patience.name %><%= patience.price %>円</h3>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
-</div>
-<div class="container">
-  <div class="comment-list bt style-2" id="comments">
+
+  <div class="container">
     <div class="float-wrapper">
-      <div class="comment-count">
-        <%= @target.post_comments.count %>件コメント
-      </div>
-    </div>
     <div id="target_<%= @target.id %>">
       <%= render "targets/comment" ,target: @target %>
     </div>
-    <%= form_with(model: [@target, @post_comment]) do |f| %>
+      <%= form_with(model: [@target, @post_comment]) do |f| %>
       <div class="row">
-        <div class="col-sm-12">
+        <div class="col-12">
           <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
         </div>
+        <div class="comment-count">
+        <%= @target.post_comments.count %>件コメント
+      </div>
+    </div>
       </div>
         <%= f.submit "送信する", class: "btn btn-outline-dark" %>
-    <% end %>
-  </div>
-  <div class="cardContents_btnArea">
-    <%= link_to '編集する', edit_target_path(@target), class: "edit_btn" %>
+      <% end %>
+      <div class="cardContents_btnArea">
+        <%= link_to '編集する', edit_target_path(@target), class: "edit_btn" %>
+      </div>
+    </div>
   </div>
 </div>
