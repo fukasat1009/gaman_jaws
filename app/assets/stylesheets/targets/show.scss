@@ -1,0 +1,169 @@
+
+.topPage {
+  min-height: 93vh;
+  padding-top: 20px;
+  overflow-x: scroll;
+  .targetWrapper {
+    display: flex;
+    height: 100%;
+    align-items: baseline;
+    .target {
+      z-index: 0;
+      border-radius: 10px;
+      position: relative;
+      background-color:#f0fff0;
+      padding: 10px;
+      margin-left: 20px;
+      min-width: 250px;
+      box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+      &:last-child {
+        margin-right: 20px;
+      }
+      &_header {
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &_title {
+          font-size: 20px;
+          margin: 0;
+        }
+        &_action {
+          .fa-pen, .fa-trash {
+            font-size: 18px;
+            color: #8c8c8c;
+          }
+        }
+      }
+        .patienceWrapper {
+        overflow-y: scroll;
+        max-height: 76vh;
+        .addCard {
+          color: #8c8c8c;
+          &_link {
+            color: #8c8c8c;
+          }
+        }
+      }
+      .patience {
+          margin-bottom: 10px;
+          color: #000;
+          box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+          padding: 10px;
+          background: #FFFFFF;
+          &_title {
+            font-size: 17px;
+          }
+         &_detail {
+            display: none;
+            &.is-exist {
+              display: block;
+              color: #999;
+              & > i {
+                display: block;
+              }
+            }
+          }
+        }
+$base-color: #D21;
+
+.atsu-mori {
+
+  font-family: "Noto Sans Japanese";
+  font-size: 98px;
+  font-weight: 900;
+  color: $base-color;
+  transform: rotate(-30deg);
+  border: 4px dashed $base-color;
+  border-radius: 16px;
+  padding: 0px 2px 2px 2px;
+  margin: 30px;
+  postion: absolute;
+  bottom: 64px;
+  z-index: 0;
+}
+
+.atsu-mori:after {
+    position: absolute;
+    bottom: 64px;
+    right: 16px;
+    display: block;
+    content: attr(data-ruby);
+    font-size: 14px;
+    z-index: 1;
+    background-color: $base-color;
+    color: #FFF;
+    padding: 0px;
+}
+
+       }
+     }
+   }
+
+bodya {
+margin: 0;
+padding: 0;
+background: url("背景画像") no-repeat;
+background-size: cover;
+width: 100%;
+height: 100vh;
+}
+
+
+.bubble {
+position: absolute;
+bottom: -40;
+width: 40px;
+height: 40px;
+background-color: transparent;
+border: 1px solid #fff;
+border-radius: 50%;
+animation: bubble 10s ease-in infinite;
+}
+
+.bubble:nth-child(1) {
+width: 20px;
+height: 20px;
+left: 30%;
+animation-duration: 6s;
+}
+
+.bubble:nth-child(2) {
+left: 20%;
+animation-duration: 3.5s;
+}
+
+.bubble:nth-child(3) {
+width: 30px;
+height: 30px;
+left: 30%;
+animation-duration: 7s;
+}
+
+.bubble:nth-child(4) {
+width: 50px;
+height: 50px;
+left: 67%;
+animation-duration: 6s;
+}
+
+.bubble:nth-child(5) {
+width: 20px;
+height: 20px;
+left: 70%;
+animation-duration: 4.5s;
+}
+
+@keyframes bubble {
+  0% {
+    bottom: -100px;
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(100px);
+  }
+  100% {
+    bottom: 1000px;
+  }
+}
+
