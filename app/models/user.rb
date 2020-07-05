@@ -6,6 +6,9 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :sns_credentials, dependent: :destroy
 
+  enum rank_status:{'見習い':0,'一般':1}
+    attribute :rank_status, :integer, default: 0
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook google_oauth2]
