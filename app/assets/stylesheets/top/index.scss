@@ -12,3 +12,34 @@
   padding-bottom: 3px;
   border-bottom: 1px solid #222;
 }
+
+$base-color: #D21;
+
+.rank-index {
+
+  font-family: "Noto Sans Japanese";
+  font-size: 98px;
+  font-weight: 900;
+  color: $base-color;
+
+  border: 4px dashed $base-color;
+  border-radius: 16px;
+  padding: 0px 2px 2px 2px;
+  margin: 30px;
+  postion: absolute;
+  bottom: 64px;
+  z-index: 0;
+}
+
+.rank-index:after {
+    position: absolute;
+    bottom: 64px;
+    right: 16px;
+    display: block;
+    content: attr(data-ruby);
+    font-size: 14px;
+    z-index: 1;
+    background-color: $base-color;
+    color: #FFF;
+    padding: 0px;
+}

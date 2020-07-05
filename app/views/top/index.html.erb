@@ -5,7 +5,27 @@
     <div class="container">
       <div class="row">
         <div class="col-6">
+            <% array = [] %>
+              <% @targets.each do |target| %>
+                <% target.patiences.each do |patience| %>
+                  <% array << patience.price.to_i %>
+                <% end %>
+              <% end %>
+          <h1>Total GAMAN</h1>
+          <div class="text-center">
+            <h1>￥<%= array.sum %></h1>
+            <h1>あなたのランクは...</h1>
+            <% if 20000 <= array.sum %>
+             <h1>チョウザメ</h1>
+             <%= image_tag asset_path("tyouzame.png",alt: ""),width: "300px" %>
+            <% else 10000 <= array.sum %>
+              <h1>普通のサメ</h1>
+              <%= image_tag asset_path("same.png",alt: ""),width: "300px" %>
+            <% end %>
+
+          </div>
         </div>
+
         <div class="col-6">
           <div class="topPage">
             <div class="targetWrapper">

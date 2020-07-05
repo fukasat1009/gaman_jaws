@@ -1,15 +1,26 @@
-<h1>Targets#edit</h1>
-<p>Find me in app/views/targets/edit.html.erb</p>
-
-
- <%= form_with model: @target, url: { action: :update }, local: true do |f| %>
-
-      <%= f.label :title %>
-      <%= f.text_field :title, autofocus: true,  placeholder: "目標名" %>
-      <%= f.label :price %>
-      <%= f.text_field :price, autofocus: true,  placeholder: "金額" %>
-
-      <%= f.select :target_status, Target.target_statuses.keys, include_blank: "-----" %>
-
-      <%= f.submit "編集" %>
- <% end %>
+<div class="container">
+  <div class="row">
+  	<div class="col-4">
+  	</div>
+  	<div class="col-4">
+  	<%= form_with model: @target, url: { action: :update }, local: true do |f| %>
+  	  <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, autofocus: true,  placeholder: "我慢名",class: "input form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :price %>
+        <%= f.text_field :price, autofocus: true,  placeholder: "我慢する金額",class: "input form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.select :target_status, Target.target_statuses.keys, include_blank: "-----" %>
+      </div>
+      <div class="form-group">
+        <%= f.submit "編集",class: "btn btn-outline-dark",style: "width:300px" %>
+      </div>
+    <% end %>
+    </div>
+    <div class="col-4">
+  	</div>
+  </div>
+</div>

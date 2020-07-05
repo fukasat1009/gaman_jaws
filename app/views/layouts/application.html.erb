@@ -28,7 +28,8 @@
 </bodya>
 
 <% if user_signed_in? %>
-  <header tabindex="0"><%= image_tag asset_path("shark3.png",alt: ""),width: "80px" %></header>
+  <header tabindex="0"><%= image_tag asset_path("shark3.png",alt: ""),width: "80px" %>
+  </header>
   <div id="nav-container">
     <div class="bg"></div>
     <div class="button" tabindex="0">
@@ -47,6 +48,9 @@
         <li class="small"><a href="#0">Facebook</a><a href="#0">Instagram</a></li>
       </ul>
     </div>
+  </div>
+  <div class="text-right">
+    <%= current_user.name %>さん
   </div>
 <% end %>
 <div class="main">
