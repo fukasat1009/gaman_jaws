@@ -11,6 +11,13 @@ background: linear-gradient(to right, #EAECC6, #2BC0E4); /* W3C, IE 10+/ Edge, F
 
 }
 
+.user-name {
+    text-align: right;
+	padding: 30px;
+	padding-right: 100px
+}
+
+
 
 
 @import "bootstrap";
