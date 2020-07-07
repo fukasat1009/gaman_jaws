@@ -5,6 +5,7 @@
   margin: 3em auto;
   padding: 0 1em;
   max-width: 370px;
+  text-align: center;
 }
 
 h1 {
@@ -61,6 +62,7 @@ form {
 .img-login {
   width: 150px;
   height: 150px;
+
 }
 
 .button-log {
@@ -68,7 +70,7 @@ form {
   border-radius: 4px;
   color: #000;
   box-shadow: 0 3px 3px rgba(0, 0, 0, .2), inset 0 1px 1px rgba(255, 255, 255, .7);
-  width: 200px;
+  width: 220px;
   height: 40px;
   margin-right: 60px;
   margin-left: 60px;
@@ -76,4 +78,39 @@ form {
 }
 .button-log:hover {
   background-color: rgba(255, 255, 255, .3);
+}
+
+.btn-social-phone a {
+  text-decoration: none;
+  line-height: 70px;
+  font-size: 18px;
+  margin: 5px;
+  padding-left:10px;
+}
+.btn-social-phone .fa-stack-2x {
+  color: black;
+  font-size:70px;
+}
+.btn-social-phone .fa-stack-1x{
+  display: inline-block;
+  position: relative;
+  font-size: 20px;
+  top: 12px;
+  left:5px;
+  transition: .4s;
+}
+.btn-social-phone-google {
+  color: #FF3300;
+}
+.btn-social-phone-facebook {
+  color: #668ad8;
+}
+
+.btn-social-phone a:hover .fa-stack-1x {
+  -webkit-transform: rotateX(360deg);
+  transform: rotateX(360deg);
+}
+
+.fa-stack {
+
 }

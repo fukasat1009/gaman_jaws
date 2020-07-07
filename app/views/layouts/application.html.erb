@@ -40,6 +40,7 @@
     <div id="nav-content" tabindex="0">
       <ul>
         <li><%= link_to "TOP", root_path, class: "nav-link" %></li>
+        <li><%= link_to "Profile",user_path(current_user.id) %></li>
         <li><%= link_to "Targets",targets_path %></li>
         <li><%= link_to "みんなの我慢", users_path %></li>
         <li><%= link_to "カレンダー", target_calendar_path %></li>
@@ -50,7 +51,7 @@
     </div>
   </div>
   <div class="user-name">
-    <%= current_user.name %>さん
+    <%= link_to current_user.name,user_path(current_user.id) %>さん
   </div>
 <% end %>
 <div class="main">
