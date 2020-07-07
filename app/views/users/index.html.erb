@@ -4,26 +4,28 @@
     <table class="table">
 	    <thead>
         <tr>
-          <th>user</th>
-          <th>title</th>
+          <th>image</th>
+          <th>User</th>
+          <th>Target</th>
           <th>price</th>
-          <th>favorite</th>
+          <th>NiceGaman</th>
         </tr>
       </thead>
-      <% @targets.each do |target| %>
-        <tbody>
-  	      <tr>
-            <td><%= link_to user_path(target.user.id) do %>
-                  <%= target.user.name %>
-                <% end %></td>
-            <td><%= link_to target.title,target_path(target) %></td>
-            <td><%= target.price %></td>
-            <td class="target_<%= target.id %>">
-              <%= render "users/favorite",target: target %>
-            </td>
-          </tr>
-        </tbody>
-      <% end %>
+        <% @targets.each do |target| %>
+          <tbody>
+  	        <tr>
+              <td><%= attachment_image_tag target.user, :profile_image, format: 'jpeg' , size: "50x50" %></td>
+              <td><%= link_to user_path(target.user.id) do %>
+                    <%= target.user.name %>
+                  <% end %></td>
+              <td><%= link_to target.title,target_path(target) %></td>
+              <td><%= target.price %></td>
+              <td class="target_<%= target.id %>">
+                <%= render "users/favorite",target: target %>
+              </td>
+            </tr>
+          </tbody>
+        <% end %>
     </div>
   </div>
 </div>

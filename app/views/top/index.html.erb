@@ -15,13 +15,22 @@
           <div class="text-center">
             <h1>￥<%= array.sum %></h1>
             <h1>あなたのランクは...</h1>
-            <% if 20000 <= array.sum %>
-             <h1>チョウザメ</h1>
-             <%= image_tag asset_path("tyouzame.png",alt: ""),width: "300px" %>
-            <% else 10000 <= array.sum %>
-              <h1>普通のサメ</h1>
-              <%= image_tag asset_path("same.png",alt: ""),width: "300px" %>
-            <% end %>
+              <% if 100000 <= array.sum %>
+                <h4>フカヒレ</h4>
+                <%= image_tag asset_path("hukahire.png",alt: ""),width: "300px" %>
+              <% elsif 50000 <= array.sum %>
+                <h4>キャビア</h4>
+                <%= image_tag asset_path("kyabia.png",alt: ""),width: "300px" %>
+              <% elsif 40000 <= array.sum %>
+                <h4>メガロドン</h4>
+                <%= image_tag asset_path("megarodon.png",alt: ""),width: "300px" %>
+              <% elsif 30000 <= array.sum %>
+                <h4>チョウザメ</h4>
+                <%= image_tag asset_path("tyouzame.png",alt: ""),width: "300px" %>
+              <% else 10000 <= array.sum %>
+                <h4>普通のサメ</h4>
+                <%= image_tag asset_path("same.png",alt: ""),width: "300px" %>
+              <% end %>
 
           </div>
         </div>
