@@ -46,19 +46,14 @@
         <li><%= link_to "カレンダー", target_calendar_path %></li>
         <li><%= link_to "新規投稿", new_target_path %></li>
         <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
-        <li class="small"><a href="#0">Facebook</a><a href="#0">Instagram</a></li>
+        <li class="small"><a href="https://www.facebook.com/">Facebook</a><a href="https://myaccount.google.com/">Google</a></li>
       </ul>
     </div>
   </div>
   <div class="user-name">
-    <%= link_to current_user.name,user_path(current_user.id) %>さん
+    <%= link_to current_user.name,user_path(current_user.id) %>さん<%= attachment_image_tag current_user, :profile_image, fallback:"noimage.jpg", format: 'jpeg' , size: "40x40",class: "rounded-circle icon_image .mt-0.ml-md-3" %>
   </div>
 <% end %>
-<div class="main">
-
-
     <%= yield %>
-  </div>
   </body>
-
 </html>

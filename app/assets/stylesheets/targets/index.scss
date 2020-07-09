@@ -7,6 +7,7 @@
     display: flex;
     height: 100%;
     align-items: baseline;
+    padding-left: 100px;
     .target {
       z-index: 0;
       border-radius: 10px;
@@ -16,6 +17,7 @@
       margin-left: 20px;
       min-width: 250px;
       box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+      width: 300px;
       &:last-child {
         margin-right: 20px;
       }
@@ -70,7 +72,7 @@ $base-color: #D21;
 .atsu-mori {
 
   font-family: "Noto Sans Japanese";
-  font-size: 98px;
+  font-size: 50px;
   font-weight: 900;
   color: $base-color;
   transform: rotate(-30deg);
@@ -172,11 +174,11 @@ animation-duration: 4.5s;
   border-radius: 4px;
   color: #000;
   box-shadow: 0 3px 3px rgba(0, 0, 0, .2), inset 0 1px 1px rgba(255, 255, 255, .7);
-  width: 200px;
+  width: 300px;
   height: 40px;
   margin-top: 30px;
-  margin-right: 60px;
-  margin-left: 60px;
+
+  margin-left: 120px;
   text-shadow: 0px 1px 0px rgba(0, 0, 0, .4);
 }
 .button-index:hover {

@@ -1,3 +1,10 @@
+
+<div class="container">
+  <div class="all-title">
+    <h1>Targets</h2>
+  </div>
+</div>
+
 <div class="topPage">
   <div class="targetWrapper">
 
@@ -8,7 +15,7 @@
           <h2 class="target_header_title"><%= target.price %></h2>円
           <div class="target_header_action">
             <%= link_to(content_tag(:i, '', class: 'fas fa-pen'), edit_target_path(target)) %>
-            <%= link_to "削除する",target, method: :delete %>
+            <%= link_to "",target, method: :delete,class: 'fas fa-trash-alt' %>
           </div>
         </div>
         <% array = [] %>
@@ -20,14 +27,13 @@
                   <%= link_to patience.name, target_patience_path(target,patience) %>&nbsp;&nbsp;&nbsp;&nbsp;<%= patience.price %>円
                 </h3>
               </div>
-              <div class="card_detail is-exist"><i class="fas fa-bars"></i></div>
             <% end %>
             <h6>我慢金額合計<%= array.sum %>円</h6>
             <h6>達成まで<%= target.price.to_i - array.sum %>円</h6>
               <% if target.price.to_i < array.sum %>
                 <div class="atsu-mori" data-ruby="JAWS">我慢</div>
                 <% end %>
-            <%= link_to "さらに我慢を追加", new_target_patience_path(target) %>
+            <%= link_to "さらに我慢を追加", new_target_patience_path(target),class: 'fas fa-bars' %>
           </div>
       </div>
     <% end %>

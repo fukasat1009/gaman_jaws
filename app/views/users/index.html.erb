@@ -1,4 +1,8 @@
-
+<div class="container">
+  <div class="all-title">
+    <h1>みんなのGAMAN</h2>
+  </div>
+</div>
 <div class="container">
   <div class="row">
     <table class="table">
@@ -14,12 +18,12 @@
         <% @targets.each do |target| %>
           <tbody>
   	        <tr>
-              <td><%= attachment_image_tag target.user, :profile_image, format: 'jpeg' , size: "50x50" %></td>
+              <td><%= attachment_image_tag target.user, :profile_image,fallback:"noimage.jpg", format: 'jpeg' , size: "50x50",class:"rounded-circle icon_image mr-3 mb-3" %></td>
               <td><%= link_to user_path(target.user.id) do %>
                     <%= target.user.name %>
                   <% end %></td>
               <td><%= link_to target.title,target_path(target) %></td>
-              <td><%= target.price %></td>
+              <td><%= target.price.to_i.to_s(:delimited) %></td>
               <td class="target_<%= target.id %>">
                 <%= render "users/favorite",target: target %>
               </td>

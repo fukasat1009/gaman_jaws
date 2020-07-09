@@ -6,20 +6,21 @@
             <div class="comment-text">
               <div class="comment-author clearfix">
                 <a href="#" class="link-author">
-                  <%= post_comment.user.name %>
+                  <%= attachment_image_tag post_comment.user, :profile_image, fallback:"noimage.jpg", format: 'jpeg' , size: "50x50",class: "rounded-circle icon_image mr-3 " %><%= post_comment.user.name %>
                 </a>
                 <span class="comment-meta">
                   <span class="comment-date"><%= post_comment.created_at.strftime('%Y/%m/%d') %></span>
                 </span>
               </div>
-              <div class="comment-entry"><%= post_comment.comment %></div>
+              <div class="comment-entry"><%= post_comment.comment %>
+                <% if post_comment.user == current_user %>
+                  <div>
+                   <%= link_to "削除", target_post_comment_path(post_comment.target, post_comment), method: :delete,remote: true,  class: "btn btn-danger pull-right w-25 h-25" %>
+                  </div>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
       </div>
-        <% if post_comment.user == current_user %>
-          <div>
-            <%= link_to "削除", target_post_comment_path(post_comment.target, post_comment), method: :delete,remote: true,  class: "btn btn-danger pull-right" %>
-          </div>
-        <% end %>
     <% end %>
