@@ -1,21 +1,14 @@
 
-.topPage {
-  min-height: 93vh;
-  padding-top: 20px;
-  overflow-x: scroll;
-  .targetWrapper {
-    display: flex;
-    height: 100%;
-    align-items: baseline;
     .target-show {
       z-index: 0;
       border-radius: 10px;
       position: absolute;
       background-color:#f0fff0;
       padding: 10px;
-      margin-left: 150px;
+      margin-left: 50px;
       min-width: 250px;
       box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+      width: 300px;
       &:last-child {
         margin-right: 20px;
       }
@@ -70,7 +63,7 @@ $base-color: #D21;
 .atsu-mori {
 
   font-family: "Noto Sans Japanese";
-  font-size: 98px;
+  font-size: 50px;
   font-weight: 900;
   color: $base-color;
   transform: rotate(-30deg);
@@ -97,8 +90,7 @@ $base-color: #D21;
 }
 
        }
-     }
-   }
+
 
 bodya {
 margin: 0;
@@ -165,6 +157,11 @@ animation-duration: 4.5s;
   100% {
     bottom: 1000px;
   }
+}
+
+.comment-entry{
+  padding-left: 70px;
+  padding-bottom: 10px
 }
 
 
