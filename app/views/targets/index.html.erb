@@ -12,7 +12,7 @@
       <div class="target">
         <div class="target_header">
           <h2 class="target_header_title"><%= link_to target.title ,target_path(target) %></h2>
-          <h2 class="target_header_title"><%= target.price %></h2>円
+          <h2 class="target_header_title"><%= target.price %>円</h2>
           <div class="target_header_action">
             <%= link_to(content_tag(:i, '', class: 'fas fa-pen'), edit_target_path(target)) %>
             <%= link_to "",target, method: :delete,class: 'fas fa-trash-alt' %>
@@ -31,7 +31,7 @@
             <h6>我慢金額合計<%= array.sum %>円</h6>
             <h6>達成まで<%= target.price.to_i - array.sum %>円</h6>
               <% if target.price.to_i < array.sum %>
-                <div class="atsu-mori" data-ruby="JAWS">我慢</div>
+                <div class="atsu-mori" >我慢上手</div>
                 <% end %>
             <%= link_to "さらに我慢を追加", new_target_patience_path(target),class: 'fas fa-bars' %>
           </div>
