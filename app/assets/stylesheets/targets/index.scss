@@ -1,19 +1,23 @@
+
 .topPage {
   min-height: 93vh;
-  padding-top: 30px;
-  background: #ffffff;
+  padding-top: 20px;
   overflow-x: scroll;
   .targetWrapper {
     display: flex;
     height: 100%;
     align-items: baseline;
+    padding-left: 100px;
     .target {
+      z-index: 0;
+      border-radius: 10px;
       position: relative;
-      background: #ffffcc;
+      background-color:#f0fff0;
       padding: 10px;
       margin-left: 20px;
       min-width: 250px;
       box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+      width: 300px;
       &:last-child {
         margin-right: 20px;
       }
@@ -63,12 +67,144 @@
             }
           }
         }
-        .stamp { font-size:40px; border:3px double #f00; border-radius:50%; color:#f00; width:100px; height:100px; position:relative; margin:auto; }
-        .stamp span { display:inline-block; width:100%; text-align:center; }
-          content:"達成";
+$base-color: #D21;
+
+.atsu-mori {
+
+  font-family: "Noto Sans Japanese";
+  font-size: 50px;
+  font-weight: 900;
+  color: $base-color;
+  transform: rotate(-30deg);
+  border: 4px dashed $base-color;
+  border-radius: 16px;
+  padding: 0px 2px 2px 2px;
+  margin: 30px;
+  postion: absolute;
+  bottom: 64px;
+  z-index: 0;
+}
+
+.atsu-mori:after {
+    position: absolute;
+    bottom: 64px;
+    right: 16px;
+    display: block;
+    content: attr(data-ruby);
+    font-size: 14px;
+    z-index: 1;
+    background-color: $base-color;
+    color: #FFF;
+    padding: 0px;
+}
 
        }
      }
    }
 
+bodya {
+margin: 0;
+padding: 0;
+background: url("背景画像") no-repeat;
+background-size: cover;
+width: 100%;
+height: 100vh;
+overflow-y: hidden;
+}
 
+
+.bubble {
+position: absolute;
+width: 40px;
+height: 40px;
+background-color: transparent;
+border: 1px solid #fff;
+border-radius: 50%;
+animation: bubble 10s ease-in infinite;
+overflow-y: hidden;
+}
+
+.bubble:nth-child(1) {
+width: 20px;
+height: 20px;
+left: 30%;
+animation-duration: 6s;
+overflow-y: hidden;
+}
+
+
+.bubble:nth-child(2) {
+left: 20%;
+animation-duration: 3.5s;
+overflow-y: hidden;
+}
+
+.bubble:nth-child(3) {
+width: 30px;
+height: 30px;
+left: 30%;
+animation-duration: 7s;
+overflow-y: hidden;
+}
+
+.bubble:nth-child(4) {
+width: 50px;
+height: 50px;
+left: 67%;
+animation-duration: 6s;
+overflow-y: hidden;
+}
+
+.bubble:nth-child(5) {
+width: 20px;
+height: 20px;
+left: 70%;
+animation-duration: 4.5s;
+overflow-y: hidden;
+}
+
+@keyframes bubble {
+  0% {
+    bottom: 0px;
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(100px);
+  }
+  100% {
+    bottom: 1000px;
+  }
+}
+
+.button-index {
+  background-color: rgba(255, 255, 255, .2);
+  border-radius: 4px;
+  color: #000;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, .2), inset 0 1px 1px rgba(255, 255, 255, .7);
+  width: 300px;
+  height: 40px;
+  margin-top: 30px;
+
+  margin-left: 120px;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, .4);
+}
+.button-index:hover {
+  background-color: rgba(255, 255, 255, .3);
+}
+
+.pagination>li>a {
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+  background: Transparent;
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {
+  background: #93c9ff;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {
+  border-radius: 15px;    /*角を丸くする*/
+}

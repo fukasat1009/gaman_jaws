@@ -1,29 +1,36 @@
-<h2>Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="form-wrapper">
+    <%= image_tag asset_path("shark3.png",alt: ""),width: "150px" %>
+
+    <span class="text-light"><h1>Sign In</h1></span>
+    <form>
+      <div class="form-item">
+        <label for="email"><%= f.label :email %></label>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email",class: "input" %>
+      </div>
+      <div class="form-item">
+        <label for="password"><%= f.label :password %></label>
+          <%= f.password_field :password, autocomplete: "current-password",class: "input" %>
+      </div>
+        <%= f.submit "Log in",class: "button-log" %>
+    <% end %>
+    </form>
+      <%= link_to "Sign up", new_registration_path(resource_name) %>
+      <div class="btn-social-phone">
+        <!--以下twitter-->
+        <%= link_to user_google_oauth2_omniauth_authorize_path do %>
+          <span class="fa-stack">
+            <i class="fas fa-tablet-alt fa-stack-2x"></i>
+            <i class="fab fa-google fa-stack-1x btn-social-phone-google"></i>
+          </span>
+        <% end %>
+        <!--以下facebook-->
+        <%= link_to user_facebook_omniauth_authorize_path do %>
+          <span class="fa-stack">
+            <i class="fas fa-tablet-alt fa-stack-2x"></i>
+            <i class="fab fa-facebook fa-stack-1x btn-social-phone-facebook"></i>
+          </span>
+         <% end %>
+      </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
-
-<%= link_to user_facebook_omniauth_authorize_path %>
-<%= link_to user_google_oauth2_omniauth_authorize_path %>

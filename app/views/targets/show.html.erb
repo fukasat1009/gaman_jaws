@@ -1,72 +1,58 @@
-
-
-<div class='carddetailPage'>
-  <div class="container">
-    <div class="cardContents">
-      <div class="cardContents_title">
-        <div>タイトル</div>
-        <h2><%= @target.title %></h2>
-      </div>
-      <div class="cardContents_memo">
-        <div>設定金額</div>
-        <div><%= @target.price %>円</div>
-      </div>
-    </div>
-  </div>
-</div>
 <div class="container">
-<div class="comment-list bt style-2" id="comments">
-  <div class="float-wrapper">
-    <div class="comment-count">
-        <%= @target.post_comments.count %>件コメント
-    </div>
+  <div class="all-title">
+    <h1><%= @target.user.name %>'s GAMAN</h2>
   </div>
-    <% @target.post_comments.each do |post_comment| %>
-      <li class="comment">
-        <div class="comment-body bb">
-          <div class="comment-avatar">
-            <div class="comment-text">
-              <div class="comment-author clearfix">
-                <a href="#" class="link-author">
-                  <%= post_comment.user.name %>
-                </a>
-                <span class="comment-meta">
-                  <span class="comment-date"><%= post_comment.created_at.strftime('%Y/%m/%d') %></span>
-                </span>
-              </div>
-              <div class="comment-entry"><%= post_comment.comment %></div>
+</div>
+
+<div class="topPage">
+  <div class="targetWrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-6">
+          <div class="target-show">
+            <div class="target_header">
+              <h2 class="target_header_title"><%= @target.title %></h2>
+              <h2 class="target_header_title"><%= @target.price %>円</h2>
+              <div class="target_header_action"></div>
             </div>
+            <% array = [] %>
+              <div class="patienceWrapper">
+                <% @target.patiences.each do |patience| %>
+                <% array << patience.price.to_i %>
+                  <div class="patience">
+                    <h3 class="patience_title"><%=  patience.name %><%= patience.price %>円</h3>
+                  </div>
+                <% end %>
+                  <h6>我慢金額合計<%= array.sum %>円</h6>
+                  <h6>達成まで<%= @target.price.to_i - array.sum %>円</h6>
+                    <% if @target.price.to_i < array.sum %>
+                      <div class="atsu-mori" >我慢上手</div>
+                    <% end %>
+                      <div class="cardContents_btnArea">
+                        <% if @target.user == current_user %>
+                          <%= link_to '編集する', edit_target_path(@target), class: "btn btn-outline-success" %>
+                        <% end %>
+                      </div>
+                      <div class="comment-count">
+                        <%= @target.post_comments.count %>件コメント
+                      </div>
+                      <div class="target_<%= @target.id %>">
+                        <%= render "users/favorite",target: @target %>
+                      </div>
+              </div>
           </div>
         </div>
-      </li>
-        <% if post_comment.user == current_user%>
-          <div>
-            <%= link_to "削除", target_post_comment_path(post_comment.target, post_comment), method: :delete, class: "btn btn-danger pull-right" %>
-          </div>
-        <% end %>
-    <% end %>
-    <%= form_for [@target, @post_comment] do |f| %>
-      <div class="row">
-        <div class="col-sm-12">
-          <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
+        <div class="col-6">
+          <div id="target_<%= @target.id %>"><%= render "targets/comment" ,target: @target %></div>
+            <%= form_with(model: [@target, @post_comment]) do |f| %>
+            <div class="comment-box">
+              <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに",class: "input form-control" %>
+            </div>
+            <%= f.submit "送信する", class: "btn btn-outline-dark mt-3" %>
+            <% end %>
         </div>
       </div>
-        <%= f.submit "送信する", class: "btn btn-outline-dark" %>
-    <% end %>
-
-    <% if @target.favorited_by?(current_user) %>
-      <li>
-        <%= link_to target_favorites_path(@target), method: :delete do %>
-        <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-        <%= @target.favorites.count %> いいね
-    <% end %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to target_favorites_path(@target), method: :post do %>
-          <i class="fa fa-heart-o" aria-hidden="true"></i>
-          <%= @target.favorites.count %> いいね
-        <% end %>
-      </li>
-    <% end %>
+    </div>
+  </div>
 </div>
+

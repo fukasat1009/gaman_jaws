@@ -1,0 +1,96 @@
+
+.home{
+  font-family: "Work Sans", sans-serif;
+  color: #222;
+  font-weight: 300;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-decoration: none;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid #222;
+}
+
+$base-color: #D21;
+
+.rank-index {
+
+  font-family: "Noto Sans Japanese";
+  font-size: 98px;
+  font-weight: 900;
+  color: $base-color;
+
+  border: 4px dashed $base-color;
+  border-radius: 16px;
+  padding: 0px 2px 2px 2px;
+  margin: 30px;
+  postion: absolute;
+  bottom: 64px;
+  z-index: 0;
+}
+
+.rank-index:after {
+    position: absolute;
+    bottom: 64px;
+    right: 16px;
+    display: block;
+    content: attr(data-ruby);
+    font-size: 14px;
+    z-index: 1;
+    background-color: $base-color;
+    color: #FFF;
+    padding: 0px;
+}
+
+.rank-box {
+      display: inline-block;
+      z-index: 0;
+      border-radius: 10px;
+      position: relative;
+      padding: 10px;
+      margin-left: 20px;
+      min-width: 250px;
+      width: 400px;
+      height: 500px;
+      color: #555555; /* 文字色 */
+      background-color: #FFFFE0; /* 背景色 */
+      box-shadow: 0 0 5px 2px #ffa042, 0 0 5px 2px #ffa042 inset; /* 影 */
+      border-radius: 2em .7em 3em .9em/.8em 3em .7em 2em; /*角の丸み*/
+}
+
+.text-rank {
+   position: absolute;
+    left: 40px;
+    top: 40px;
+
+}
+
+.all-title  {
+  position: relative;
+  color: #333;
+  text-shadow: 0 0 2px white;
+}
+
+.all-title  h1{
+  text-align: left;
+  padding-bottom: 5px;
+
+}
+
+.all-title:after {
+  content: "";
+  position: absolute;
+  background: #9de5ff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  top: 50%;
+  /* border: dashed 1px white; */
+  left: -15px;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: -1;
+}
+
