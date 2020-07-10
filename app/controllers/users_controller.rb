@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   def index
   	@users = User.all
   	@targets = Target.all
+    @targets = Target.page(params[:page]).per(5)
   end
   def show
   	@user = User.find(params[:id])
