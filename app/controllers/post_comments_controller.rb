@@ -1,4 +1,5 @@
 class PostCommentsController < ApplicationController
+  
   def create
     @post_comment = PostComment.new
     @target = Target.find(params[:target_id])
