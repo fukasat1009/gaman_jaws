@@ -23,11 +23,4 @@
 ### 機能一覧
 <https://docs.google.com/spreadsheets/d/1fXYuVggTpECWm_Qj5xKzLwSB3vgjvnoMQzu6FWm5eRE/edit?usp=sharing>
 
-| Left align | Right align | Center align |
-|:-----------|------------:|:------------:|
-| This       | This        | This         |
-| column     | column      | column       |
-| will       | will        | will         |
-| be         | be          | be           |
-| left       | right       | center       |
-| aligned    | aligned     | aligned      |
+
