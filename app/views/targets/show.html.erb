@@ -16,39 +16,39 @@
               <div class="target_header_action"></div>
             </div>
             <% array = [] %>
-              <div class="patienceWrapper">
-                <% @target.patiences.each do |patience| %>
+            <div class="patienceWrapper">
+              <% @target.patiences.each do |patience| %>
                 <% array << patience.price.to_i %>
                   <div class="patience">
                     <h3 class="patience_title"><%=  patience.name %><%= patience.price %>円</h3>
                   </div>
+              <% end %>
+                <h6>我慢金額合計<%= array.sum %>円</h6>
+                <h6>達成まで<%= @target.price.to_i - array.sum %>円</h6>
+              <% if @target.price.to_i < array.sum %>
+                <div class="atsu-mori" >我慢上手</div>
+              <% end %>
+              <div class="cardContents_btnArea">
+                <% if @target.user == current_user %>
+                  <%= link_to '編集する', edit_target_path(@target), class: "btn btn-outline-success" %>
                 <% end %>
-                  <h6>我慢金額合計<%= array.sum %>円</h6>
-                  <h6>達成まで<%= @target.price.to_i - array.sum %>円</h6>
-                    <% if @target.price.to_i < array.sum %>
-                      <div class="atsu-mori" >我慢上手</div>
-                    <% end %>
-                      <div class="cardContents_btnArea">
-                        <% if @target.user == current_user %>
-                          <%= link_to '編集する', edit_target_path(@target), class: "btn btn-outline-success" %>
-                        <% end %>
-                      </div>
-                      <div class="comment-count">
-                        <%= @target.post_comments.count %>件コメント
-                      </div>
-                      <div class="target_<%= @target.id %>">
-                        <%= render "users/favorite",target: @target %>
-                      </div>
               </div>
+              <div class="comment-count">
+                <%= @target.post_comments.count %>件コメント
+              </div>
+              <div class="target_<%= @target.id %>">
+                <%= render "users/favorite",target: @target %>
+              </div>
+            </div>
           </div>
         </div>
         <div class="col-6">
           <div id="target_<%= @target.id %>"><%= render "targets/comment" ,target: @target %></div>
             <%= form_with(model: [@target, @post_comment]) do |f| %>
-            <div class="comment-box">
-              <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに",class: "input form-control" %>
-            </div>
-            <%= f.submit "送信する", class: "btn btn-outline-dark mt-3" %>
+              <div class="comment-box">
+                <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに",class: "input form-control" %>
+              </div>
+              <%= f.submit "送信する", class: "btn btn-outline-dark mt-3" %>
             <% end %>
         </div>
       </div>

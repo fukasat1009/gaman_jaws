@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="all-title">
     <h1><%= @user.name %>'s Profile</h2>
@@ -8,40 +7,40 @@
 <div class="window">
   <div class="box header-show">
     <div class="img-show"><%= attachment_image_tag @user, :profile_image, fallback:"noimage.jpg", format: 'jpeg' , size: "200x150" %></div>
-    <h2><%= @user.name %></h2>
+      <h2><%= @user.name %></h2>
     <div><%= @user.body %></div>
     <% if @user == current_user %>
       <%= link_to "Profile Edit",edit_user_path(@user),class: "btn show-edit" %>
     <% end %>
   </div>
-    <div class="box footer">
+  <div class="box footer">
     <% array = [] %>
-  <% @user.targets.each do |target| %>
-    <% target.patiences.each do |patience| %>
-     <% array << patience.price.to_i %>
+    <% @user.targets.each do |target| %>
+      <% target.patiences.each do |patience| %>
+        <% array << patience.price.to_i %>
+      <% end %>
     <% end %>
-  <% end %>
-  <h3>Total GAMAN</h3>
-  <div class="text-center">
-    <h4>￥<%= array.sum %></h4>
+      <h3>Total GAMAN</h3>
+    <div class="text-center">
+      <h4>￥<%= array.sum %></h4>
 
-    <% if 100000 <= array.sum %>
-     <h4>[フカヒレ]</h4>
-     <%= image_tag asset_path("hukahire.png",alt: ""),width: "150px" %>
-    <% elsif 50000 <= array.sum %>
-      <h4>[キャビア]</h4>
-      <%= image_tag asset_path("kyabia.png",alt: ""),width: "150px" %>
-    <% elsif 40000 <= array.sum %>
-      <h4>[メガロドン]</h4>
-      <%= image_tag asset_path("megarodon.png",alt: ""),width: "150px" %>
-    <% elsif 30000 <= array.sum %>
-      <h4>[チョウザメ]</h4>
-      <%= image_tag asset_path("tyouzame.png",alt: ""),width: "150px" %>
-    <% else 10000 <= array.sum %>
-      <h4>[普通のサメ]</h4>
-      <%= image_tag asset_path("same.png",alt: ""),width: "150px" %>
-    <% end %>
-   </div>
+      <% if 100000 <= array.sum %>
+        <h4>[フカヒレ]</h4>
+        <%= image_tag asset_path("hukahire.png",alt: ""),width: "150px" %>
+      <% elsif 50000 <= array.sum %>
+        <h4>[キャビア]</h4>
+        <%= image_tag asset_path("kyabia.png",alt: ""),width: "150px" %>
+      <% elsif 40000 <= array.sum %>
+        <h4>[メガロドン]</h4>
+        <%= image_tag asset_path("megarodon.png",alt: ""),width: "150px" %>
+      <% elsif 30000 <= array.sum %>
+        <h4>[チョウザメ]</h4>
+        <%= image_tag asset_path("tyouzame.png",alt: ""),width: "150px" %>
+      <% else 10000 <= array.sum %>
+        <h4>[普通のサメ]</h4>
+        <%= image_tag asset_path("same.png",alt: ""),width: "150px" %>
+      <% end %>
+    </div>
   </div>
 </div>
 

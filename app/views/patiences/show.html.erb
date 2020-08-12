@@ -1,14 +1,11 @@
-
-
-  <div class="container">
-    <div class="row">
-      <div class="col-4">
+<div class="container">
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+      <div class="border-bottom border-dark">
+        <div>我慢名</div>
+        <h2><%= @patience.name %></h2>
       </div>
-      <div class="col-4">
-        <div class="border-bottom border-dark">
-            <div>我慢名</div>
-            <h2><%= @patience.name %></h2>
-        </div>
       <div class="form-group border-bottom border-dark">
         <div>金額</div>
         <h2><%= @patience.price %>円</h2>
@@ -19,9 +16,8 @@
       </div>
       <div class="cardContents_btnArea">
         <%= link_to '編集する', edit_target_patience_path(@patience.target, @patience), class: "btn btn-outline-dark" %>
-
         <%= link_to '削除する', target_patience_path(@patience.target, @patience), method: :delete, class: "btn btn-outline-danger" %>
-      </div>
       </div>
     </div>
   </div>
+</div>

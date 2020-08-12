@@ -1,13 +1,13 @@
-
 <div class="container">
   <div class="all-title">
     <h1>みんなのGAMAN</h2>
   </div>
 </div>
+
 <div class="container">
   <div class="row">
     <table class="table">
-	    <thead>
+      <thead>
         <tr>
           <th>image</th>
           <th>User</th>
@@ -18,7 +18,7 @@
       </thead>
         <% @targets.each do |target| %>
           <tbody>
-  	        <tr>
+            <tr>
               <td><%= attachment_image_tag target.user, :profile_image,fallback:"noimage.jpg", format: 'jpeg' , size: "50x50",class:"rounded-circle icon_image mr-3 mb-3" %></td>
               <td><%= link_to user_path(target.user.id) do %>
                     <%= target.user.name %>
@@ -31,7 +31,7 @@
             </tr>
           </tbody>
         <% end %>
-        <%= paginate @targets %>
+      <%= paginate @targets %>
     </table>
   </div>
 </div>

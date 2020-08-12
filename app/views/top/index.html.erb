@@ -6,81 +6,78 @@
 
 <div class="topPage">
   <div class="container">
-      <div class="row">
-        <div class="rank-box">
+    <div class="row">
+      <div class="rank-box">
         <div class="col-6">
-            <% array = [] %>
-              <% @targets.each do |target| %>
-                <% target.patiences.each do |patience| %>
-                  <% array << patience.price.to_i %>
-                <% end %>
+          <% array = [] %>
+            <% @targets.each do |target| %>
+              <% target.patiences.each do |patience| %>
+                <% array << patience.price.to_i %>
               <% end %>
-        <div class="text-rank">
-          <h1>Total GAMAN</h1>
-            <h1>￥<%= array.sum.to_i.to_s(:delimited) %></h1>
-            <h1>RANK</h1>
-              <% if 100000 <= array.sum %>
-                <h1>[フカヒレ]</h1>
-                <%= image_tag asset_path("hukahire.png",alt: ""),width: "300px" %>
-              <% elsif 50000 <= array.sum %>
-                <h1>[キャビア]</h1>
-                <%= image_tag asset_path("kyabia.png",alt: ""),width: "300px" %>
-              <% elsif 40000 <= array.sum %>
-                <h1>[メガロドン]</h1>
-                <%= image_tag asset_path("megarodon.png",alt: ""),width: "300px" %>
-              <% elsif 30000 <= array.sum %>
-                <h1>[チョウザメ]</h1>
-                <%= image_tag asset_path("tyouzame.png",alt: ""),width: "300px" %>
-              <% else 10000 <= array.sum %>
-                <h1>[普通のサメ]</h1>
-                <%= image_tag asset_path("same.png",alt: ""),width: "300px" %>
-              <% end %>
+            <% end %>
+            <div class="text-rank">
+              <h1>Total GAMAN</h1>
+              <h1>￥<%= array.sum.to_i.to_s(:delimited) %></h1>
+              <h1>RANK</h1>
+            <% if 100000 <= array.sum %>
+              <h1>[フカヒレ]</h1>
+              <%= image_tag asset_path("hukahire.png",alt: ""),width: "300px" %>
+            <% elsif 50000 <= array.sum %>
+              <h1>[キャビア]</h1>
+              <%= image_tag asset_path("kyabia.png",alt: ""),width: "300px" %>
+            <% elsif 40000 <= array.sum %>
+              <h1>[メガロドン]</h1>
+              <%= image_tag asset_path("megarodon.png",alt: ""),width: "300px" %>
+            <% elsif 30000 <= array.sum %>
+              <h1>[チョウザメ]</h1>
+              <%= image_tag asset_path("tyouzame.png",alt: ""),width: "300px" %>
+            <% else 10000 <= array.sum %>
+              <h1>[普通のサメ]</h1>
+              <%= image_tag asset_path("same.png",alt: ""),width: "300px" %>
+            <% end %>
           </div>
         </div>
       </div>
-
-
-        <div class="col-6">
-          <h1>Topic!!!!</h1>
-          <div class="topPage">
-            <div class="targetWrapper">
-              <% @targets.each do |target| %>
-                <% if target.target_status == "Topicに設定" %>
-                  <div class="target">
-                    <div class="target_header">
-                      <h2 class="target_header_title">目標:<%= link_to target.title ,target_path(target) %></h2>
-                      <h2 class="target_header_title"><%= target.price.to_i %>円</h2>
-                        <div class="target_header_action">
-                          <%= link_to(content_tag(:i, '', class: 'fas fa-pen'), edit_target_path(target)) %>
-                          <%= link_to "",target, method: :delete,class: 'fas fa-trash-alt' %>
-                        </div>
+      <div class="col-6">
+        <h1>Topic!!!!</h1>
+        <div class="topPage">
+          <div class="targetWrapper">
+            <% @targets.each do |target| %>
+              <% if target.target_status == "Topicに設定" %>
+                <div class="target">
+                  <div class="target_header">
+                    <h2 class="target_header_title">目標:<%= link_to target.title ,target_path(target) %></h2>
+                    <h2 class="target_header_title"><%= target.price.to_i %>円</h2>
+                    <div class="target_header_action">
+                      <%= link_to(content_tag(:i, '', class: 'fas fa-pen'), edit_target_path(target)) %>
+                      <%= link_to "",target, method: :delete,class: 'fas fa-trash-alt' %>
                     </div>
-                    <% array = [] %>
-                      <div class="patienceWrapper">
-                        <% target.patiences.each do |patience| %>
-                          <% array << patience.price.to_i %>
-                            <div class="patience">
-                              <h3 class="patience_title">
-                                <%= link_to patience.name, target_patience_path(target,patience) %>&nbsp;&nbsp;&nbsp;&nbsp;<%= patience.price %>円
-                              </h3>
-                            </div>
-                        <% end %>
-                        <h6>我慢金額合計<%= array.sum %>円</h6>
-                        <h6>達成まで<%= target.price.to_i - array.sum %>円</h6>
-                       <% if target.price.to_i <= array.sum %>
-                         <div class="atsu-mori" >我慢上手</div>
-                       <% end %>
-                       <%= link_to "さらに我慢を追加", new_target_patience_path(target),class: 'fas fa-bars' %>
-                      </div>
                   </div>
-                <% end %>
+                  <% array = [] %>
+                  <div class="patienceWrapper">
+                    <% target.patiences.each do |patience| %>
+                      <% array << patience.price.to_i %>
+                        <div class="patience">
+                          <h3 class="patience_title">
+                            <%= link_to patience.name, target_patience_path(target,patience) %>&nbsp;&nbsp;&nbsp;&nbsp;<%= patience.price %>円
+                          </h3>
+                        </div>
+                    <% end %>
+                      <h6>我慢金額合計<%= array.sum %>円</h6>
+                      <h6>達成まで<%= target.price.to_i - array.sum %>円</h6>
+                    <% if target.price.to_i <= array.sum %>
+                      <div class="atsu-mori" >我慢上手</div>
+                    <% end %>
+                    <%= link_to "さらに我慢を追加", new_target_patience_path(target),class: 'fas fa-bars' %>
+                  </div>
+                </div>
               <% end %>
-            </div>
-            <%= link_to "新しく目標を作る", new_target_path, class: "btn button-index" %>
+            <% end %>
           </div>
+          <%= link_to "新しく目標を作る", new_target_path, class: "btn button-index" %>
         </div>
       </div>
-
+    </div>
   </div>
 </div>
 
