@@ -5,14 +5,13 @@
  */
 
 body {
-background: #2BC0E4;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #EAECC6, #2BC0E4);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #EAECC6, #2BC0E4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+	background: #2BC0E4;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #EAECC6, #2BC0E4);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #EAECC6, #2BC0E4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .user-name {
-    text-align: right;
+  text-align: right;
 	padding: 30px;
 	padding-right: 100px
 }
@@ -22,7 +21,6 @@ background: linear-gradient(to right, #EAECC6, #2BC0E4); /* W3C, IE 10+/ Edge, F
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
-
 @import "targets/index";
 @import "targets/show";
 @import "patience/show";
@@ -30,9 +28,7 @@ background: linear-gradient(to right, #EAECC6, #2BC0E4); /* W3C, IE 10+/ Edge, F
 @import "top/top";
 @import "users/show";
 @import "login/form";
-
 @import "header";
-
 @import url('https://fonts.googleapis.com/css?family=Encode+Sans+Condensed:400,600');
 
 

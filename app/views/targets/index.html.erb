@@ -7,7 +7,6 @@
 
 <div class="topPage">
   <div class="targetWrapper">
-
     <% @targets.each do |target| %>
       <div class="target">
         <div class="target_header">
@@ -22,8 +21,8 @@
           <div class="patienceWrapper">
             <% target.patiences.each do |patience| %>
               <% array << patience.price.to_i %>
-                <div class="patience">
-                  <h3 class="patience_title">
+              <div class="patience">
+                <h3 class="patience_title">
                   <%= link_to patience.name, target_patience_path(target,patience) %>&nbsp;&nbsp;&nbsp;&nbsp;<%= patience.price %>円
                 </h3>
               </div>
@@ -32,7 +31,7 @@
             <h6>達成まで<%= target.price.to_i - array.sum %>円</h6>
               <% if target.price.to_i < array.sum %>
                 <div class="atsu-mori" >我慢上手</div>
-                <% end %>
+              <% end %>
             <%= link_to "さらに我慢を追加", new_target_patience_path(target),class: 'fas fa-bars' %>
           </div>
       </div>
