@@ -68,7 +68,7 @@
         }
       }
 
-      $base-color: #D21;
+    $base-color: #D21;
       .atsu-mori {
         font-family: "Noto Sans Japanese";
         font-size: 50px;
@@ -79,7 +79,7 @@
         border-radius: 16px;
         padding: 0px 2px 2px 2px;
         margin: 30px;
-        position: absolute;
+        // position: absolute;
         bottom: 64px;
         z-index: 0;
       }
