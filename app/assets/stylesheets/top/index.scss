@@ -26,7 +26,7 @@ $base-color: #D21;
   border-radius: 16px;
   padding: 0px 2px 2px 2px;
   margin: 30px;
-  postion: absolute;
+  position: absolute;
   bottom: 64px;
   z-index: 0;
 }
@@ -45,25 +45,25 @@ $base-color: #D21;
 }
 
 .rank-box {
-      display: inline-block;
-      z-index: 0;
-      border-radius: 10px;
-      position: relative;
-      padding: 10px;
-      margin-left: 20px;
-      min-width: 250px;
-      width: 400px;
-      height: 500px;
-      color: #555555; /* 文字色 */
-      background-color: #FFFFE0; /* 背景色 */
-      box-shadow: 0 0 5px 2px #ffa042, 0 0 5px 2px #ffa042 inset; /* 影 */
-      border-radius: 2em .7em 3em .9em/.8em 3em .7em 2em; /*角の丸み*/
+  display: inline-block;
+  z-index: 0;
+  border-radius: 10px;
+  position: relative;
+  padding: 10px;
+  margin-left: 20px;
+  min-width: 250px;
+  width: 400px;
+  height: 500px;
+  color: #555555; /* 文字色 */
+  background-color: #FFFFE0; /* 背景色 */
+  box-shadow: 0 0 5px 2px #ffa042, 0 0 5px 2px #ffa042 inset; /* 影 */
+  border-radius: 2em .7em 3em .9em/.8em 3em .7em 2em; /*角の丸み*/
 }
 
 .text-rank {
-   position: absolute;
-    left: 40px;
-    top: 40px;
+  position: absolute;
+  left: 40px;
+  top: 40px;
 
 }
 

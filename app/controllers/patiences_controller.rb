@@ -1,5 +1,5 @@
 class PatiencesController < ApplicationController
-  
+
   def new
     @patience = Patience.new
     @target = Target.find_by(id: params[:target_id])
@@ -7,6 +7,7 @@ class PatiencesController < ApplicationController
 
   def create
     @patience = Patience.new(patience_params)
+    @target = Target.find_by(id: params[:target_id])
     if @patience.save
       redirect_to targets_path
     else
