@@ -16,7 +16,7 @@ class TargetsController < ApplicationController
   def update
       @target = Target.find(params[:id])
     if @target.update(target_params)
-       redirect_to targets_path
+      redirect_to targets_path
     else
       render :edit
     end
@@ -43,7 +43,7 @@ class TargetsController < ApplicationController
   end
 
   def calendar
-     @targets = Target.where(user: current_user).order("created_at ASC")
+    @targets = Target.where(user: current_user).order("created_at ASC")
   end
 
   private

@@ -1,6 +1,6 @@
 .window,
 .box,
- {
+{
   margin: 0;
   overflow: hidden;
   padding: 0;
@@ -8,7 +8,6 @@
   }
 
 .window {
-
   box-shadow: 0 0 100px  rgba(0,0,0,0.25);
   height: 600px;
   margin: 2em auto 0;
@@ -20,10 +19,8 @@
   display: block;
   width: 100%;
 }
-
-
 .header-show {
- background: #EEE8AA;
+  background: #EEE8AA;
   color: #000000;
   height: 380px;
   left: 0;
@@ -32,7 +29,6 @@
   top: 0;
   width: inherit;
 }
-
 .header-show h2 {
   display: inline-block;
   font-family: 'Quicksand', sans-serif;
@@ -43,7 +39,6 @@
   padding: 0;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
-
 .header-show h4 {
   color: rgba(255, 255, 255, 0.75);
   display: block;
@@ -53,7 +48,6 @@
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   text-transform: uppercase;
 }
-
 .header-show img {
   border: 5px solid #A1DCFF;
   border-radius: 100%;
@@ -62,7 +56,6 @@
   object-fit: cover;
   width: 140px;
 }
-
 .header-show:before {
   border: 2px solid rgba(161, 220, 255, 0.34);
   border-radius: 100%;
@@ -80,7 +73,6 @@
   -moz-transform: scale(1.24, 1.24);
   transform: scale(1.24, 1.24);
 }
-
 .footer {
   background: rgba(0, 97, 145, 0.75);
   bottom: 0;
@@ -91,9 +83,8 @@
   top: 380px;
   width: inherit;
 }
-
 .show-edit {
-  texit-align: center;
+  text-align: center;
   background-color: rgba(255, 255, 255, .2);
   border-radius: 4px;
   color: #000;
@@ -105,7 +96,6 @@
   margin-left: 60px;
   text-shadow: 0px 1px 0px rgba(0, 0, 0, .4);
 }
-
 .show-edit:hover {
   background-color: rgba(255, 255, 255, .3);
 }
